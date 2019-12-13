@@ -2,7 +2,7 @@
 returns an WxH+X+Y geometry suitable for passing to convert -crop for cropping pages from e-rara pdfs
 
 example process from start to end to crop and trim a 6"x9" pdf suitable for delivery to printing press:
-
+```
 mkdir 1 2 3
 gs -q -sDEVICE=pngalpha -r300 -o 1/%03d.png inputpdf1.pdf
 gs -q -sDEVICE=pngalpha -r300 -o 2/%03d.png inputpdf2.pdf
@@ -14,3 +14,4 @@ let a=1; for i in 1 2 3; do for f in $i/*.png; do convert $f -crop `./pc $f` -pa
 gs -dNOPAUSE -dQUIET -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -dCompatibilityLevel=1.4 -r300 -sOutputFile=output.pdf cropped/*.pdf
 
 pdfjam --papersize '{6in,9in}' --twoside --offset '0.2in 0in' --clip true --scale 0.93 output.pdf -o fit.pdf
+```
