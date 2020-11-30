@@ -13,5 +13,5 @@ let a=1; for i in 1 2 3; do for f in $i/*.png; do convert $f -crop `./pc $f` -pa
 
 gs -dNOPAUSE -dQUIET -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -dCompatibilityLevel=1.4 -r300 -sOutputFile=output.pdf cropped/*.pdf
 
-pdfjam --papersize '{6in,9in}' --twoside --offset '0.2in 0in' --clip true --scale 0.93 output.pdf -o fit.pdf
+pdfjam --papersize '{6in,9in}' --twoside --offset '0.2in 0in' --scale 0.93 output.pdf -o fit.pdf
 ```
